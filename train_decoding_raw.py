@@ -252,6 +252,7 @@ if __name__ == '__main__':
     os.makedirs(CONFIG_DIR, exist_ok=True)
 
     args = config.get_config('train_decoding')
+    upload_first_run_step1 = args['upload_first_run_step1']
 
     ''' config param'''
     dataset_setting = 'unique_sent'
@@ -467,6 +468,11 @@ if __name__ == '__main__':
 
 
     else:
+        if upload_first_run_step1 :
+            stepone_checkpoint_not_first = '/kaggle/input/notebook86a1566a51/checkpoints/decoding_raw/best/task1_task2_taskNRv2_finetune_BrainTranslator_2steptraining_b25_15_15_5e-05_5e-05_unique_sent.pt'
+            print(f'not first run for step 1, load checkpoint: {stepone_checkpoint_not_first}')
+            model.load_state_dict(torch.load(stepone_checkpoint_not_first))
+            
         '''step one trainig'''
     ######################################################
 
