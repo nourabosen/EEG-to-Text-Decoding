@@ -3,10 +3,11 @@ python /kaggle/working/EEG-to-Text-Decoding/train_decoding_raw.py --model_name B
     --two_step \
     --pretrained \
     --not_load_step1_checkpoint \
-    --num_epoch_step1 15 \
+    --not_first_run \
+    --num_epoch_step1 10 \
     --num_epoch_step2 15 \
     -lr1 0.00005 \
     -lr2 0.00005 \
-    -b 25\
+    -b 25 \
     -s /kaggle/working/checkpoints/decoding_raw \
     -cuda cuda:0
